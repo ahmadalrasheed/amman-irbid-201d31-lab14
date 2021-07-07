@@ -50,6 +50,31 @@
       </div>
     </section>
 
+    <br>
+
+    <section class="deck col-1" style="text-align: center;">
+      <fieldset><input type="text" placeholder="Name" id="name"></fieldset>
+      <fieldset><input type="text" placeholder="Street" id="street"></fieldset>
+      <fieldset><input type="text" placeholder="City" id="city"></fieldset>
+      <fieldset><input type="text" placeholder="State" id="state"></fieldset>
+      <fieldset><input type="text" placeholder="ZIP Code" id="zipCode"></fieldset>
+      <fieldset><input type="text" placeholder="Phone Number" id="phoneNumber"></fieldset>
+      <hr style="width: 200px;">
+      <fieldset><input type="number" placeholder="Credit Card Number" id="ccNumber" max="9999999999999999" style="width: 200px;"></fieldset>
+      <br>
+      <fieldset><button id="processOrder">Process Order</button></fieldset>
+    </section>
+
+
+    <div id="alertMsg" style="display: none;">
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Success</strong> Your Order Confirmed
+    </div>
+  </div>
+
+
+
   </main>
 
   <footer>

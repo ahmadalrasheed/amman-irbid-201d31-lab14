@@ -3,7 +3,7 @@
 
 // Create an event listener so that when the delete link is clicked, the removeItemFromCart method is invoked.
 const table = document.getElementById("cart");
-table.addEventListener("click", removeItemFromCart);
+// table.addEventListener("click", removeItemFromCart);
 let cart;
 
 
@@ -22,7 +22,7 @@ function loadCart() {
   let cartItemsArray = [];
   for (let i = 0; i < initCart.items.length; i++) {
     cartItemsArray.push(
-      new CartItem(initCart.items[i].product, initCart.items[i].quantity)
+      new CartItem(initCart.items[i].product, initCart.items[i].quantity, i)
     );
   }
   cart = new Cart(cartItemsArray);
@@ -62,7 +62,7 @@ function showCart() {
       deleteTDEl.setAttribute("id", cart.items[j].product);
       let anEl = document.createElement("a");
       anEl.setAttribute("href", "#delete-link");
-      anEl.setAttribute("id", cart.items[j].product);
+      anEl.setAttribute("id", j);
       anEl.addEventListener("click", removeItemFromCart);
       anEl.innerHTML = "X";
       anEl.style = "color:red; font-size:1.1pc; font-weight: bold; ";
@@ -88,11 +88,27 @@ function removeItemFromCart(event) {
   // TODO: Re-draw the cart table
   event.preventDefault();
   let itemToRemove = event.target.id;
-  for (let i = 0; i < cart.items.length; i++) {
-    if (cart.items[i].product === itemToRemove) {
-      cart.removeItem(cart.items[i]);
-    }
-  }
+  cart.removeItem(cart.items[event.target.id]);
+  
+  cart.saveToLocalStorage();
+  
+  renderCart();
+}
+
+const btn = document.getElementById("processOrder");
+btn.addEventListener("click", removeAllItems);
+function removeAllItems(event) {
+  event.preventDefault();
+  cart.removeAllItems();
+
+  document.getElementById("name").value = '';
+  document.getElementById("street").value = '';
+  document.getElementById("city").value = '';
+  document.getElementById("state").value = '';
+  document.getElementById("zipCode").value = '';
+  document.getElementById("phoneNumber").value = '';
+  document.getElementById("ccNumber").value = '';
+document.getElementById('alertMsg').style="display: block;";
   
   cart.saveToLocalStorage();
   
