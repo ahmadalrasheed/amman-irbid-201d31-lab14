@@ -13,6 +13,13 @@ function populateForm() {
   const selectElement = document.getElementById('items');
   for (let i in Product.allProducts) {
 
+    let optionEl=document.createElement('option')
+    optionEl.textContent=Product.allProducts[i].name;
+    selectElement.appendChild(optionEl);
+    optionEl.setAttribute("value", Product.allProducts[i].name);
+    // optionvalue.push(optionEl.value)
+  
+
   }
 
 }
@@ -23,6 +30,7 @@ function populateForm() {
 function handleSubmit(event) {
 
   // TODO: Prevent the page from reloading
+  event.preventDefault();
 
   // Do all the things ...
   addSelectedItemToCart();

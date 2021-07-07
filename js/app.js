@@ -1,13 +1,24 @@
 'use strict';
+// let productNames = [  "bag",  "banana",  "bathroom",  "boots",  "breakfast",  "bubblegum",  "chair",  "cthulhu",  "dog-duck",  "dragon",  "pen",  "pet-sweep",  "scissors",  "shark",  "sweep",  "tauntaun",  "unicorn",  "water-can",  "wine-glass"];
+// let optionvalue=[];
 
+// console.log(optionvalue)
+
+
+let cartitem=[];
 // Cart constructor.
-const Cart = function(items) {
+const Cart = function(item) {
   // this.items is an array of CartItem instances.
-  this.items = items;
+  this.item = item;
+
 };
 
-Cart.prototype.addItem = function(product, quantity) {
+Cart.prototype.addItem = function(itemname, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  // let itemEl=document.getElementById("items");
+  // var x = document.getElementById("quantity").value;
+  // console.log(x);
+ 
 };
 
 Cart.prototype.saveToLocalStorage = function() {
@@ -57,3 +68,10 @@ function generateCatalog() {
 
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
+
+// let itemEl=document.getElementById("items");
+
+// for (let i=0 ; i<Product.allProducts.length;i++){
+
+
+// }
