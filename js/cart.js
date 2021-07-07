@@ -18,7 +18,7 @@ function renderCart() {
 
 
 function loadCart() {
-  let initCart = JSON.parse(localStorage.getItem("data"));
+  let initCart = JSON.parse(localStorage.getItem('data'));
   let cartItemsArray = [];
   for (let i = 0; i < initCart.items.length; i++) {
     cartItemsArray.push(
